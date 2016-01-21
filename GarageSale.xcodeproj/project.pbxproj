@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B341B7C1C5086AA0020AC67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341B7B1C5086AA0020AC67 /* AppDelegate.swift */; };
+		7B341B7E1C5086AA0020AC67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341B7D1C5086AA0020AC67 /* ViewController.swift */; };
+		7B341B811C5086AA0020AC67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B341B7F1C5086AA0020AC67 /* Main.storyboard */; };
+		7B341B841C5086AA0020AC67 /* GarageSale.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B341B821C5086AA0020AC67 /* GarageSale.xcdatamodeld */; };
+		7B341B861C5086AA0020AC67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B341B851C5086AA0020AC67 /* Assets.xcassets */; };
+		7B341B891C5086AA0020AC67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B341B871C5086AA0020AC67 /* LaunchScreen.storyboard */; };
+		7B341B941C5086AB0020AC67 /* GarageSaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341B931C5086AB0020AC67 /* GarageSaleTests.swift */; };
+		7B341B9F1C5086AB0020AC67 /* GarageSaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341B9E1C5086AB0020AC67 /* GarageSaleUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7B341B901C5086AB0020AC67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B341B701C5086AA0020AC67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B341B771C5086AA0020AC67;
+			remoteInfo = GarageSale;
+		};
+		7B341B9B1C5086AB0020AC67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B341B701C5086AA0020AC67 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B341B771C5086AA0020AC67;
+			remoteInfo = GarageSale;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7B341B781C5086AA0020AC67 /* GarageSale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarageSale.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B341B7B1C5086AA0020AC67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7B341B7D1C5086AA0020AC67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7B341B801C5086AA0020AC67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7B341B831C5086AA0020AC67 /* GarageSale.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GarageSale.xcdatamodel; sourceTree = "<group>"; };
+		7B341B851C5086AA0020AC67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B341B881C5086AA0020AC67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7B341B8A1C5086AA0020AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B341B8F1C5086AB0020AC67 /* GarageSaleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GarageSaleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B341B931C5086AB0020AC67 /* GarageSaleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageSaleTests.swift; sourceTree = "<group>"; };
+		7B341B951C5086AB0020AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B341B9A1C5086AB0020AC67 /* GarageSaleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GarageSaleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B341B9E1C5086AB0020AC67 /* GarageSaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageSaleUITests.swift; sourceTree = "<group>"; };
+		7B341BA01C5086AB0020AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B341B751C5086AA0020AC67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B341B8C1C5086AB0020AC67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B341B971C5086AB0020AC67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B341B6F1C5086AA0020AC67 = {
+			isa = PBXGroup;
+			children = (
+				7B341B7A1C5086AA0020AC67 /* GarageSale */,
+				7B341B921C5086AB0020AC67 /* GarageSaleTests */,
+				7B341B9D1C5086AB0020AC67 /* GarageSaleUITests */,
+				7B341B791C5086AA0020AC67 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B341B791C5086AA0020AC67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B341B781C5086AA0020AC67 /* GarageSale.app */,
+				7B341B8F1C5086AB0020AC67 /* GarageSaleTests.xctest */,
+				7B341B9A1C5086AB0020AC67 /* GarageSaleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B341B7A1C5086AA0020AC67 /* GarageSale */ = {
+			isa = PBXGroup;
+			children = (
+				7B341B7B1C5086AA0020AC67 /* AppDelegate.swift */,
+				7B341B7D1C5086AA0020AC67 /* ViewController.swift */,
+				7B341B7F1C5086AA0020AC67 /* Main.storyboard */,
+				7B341B851C5086AA0020AC67 /* Assets.xcassets */,
+				7B341B871C5086AA0020AC67 /* LaunchScreen.storyboard */,
+				7B341B8A1C5086AA0020AC67 /* Info.plist */,
+				7B341B821C5086AA0020AC67 /* GarageSale.xcdatamodeld */,
+			);
+			path = GarageSale;
+			sourceTree = "<group>";
+		};
+		7B341B921C5086AB0020AC67 /* GarageSaleTests */ = {
+			isa = PBXGroup;
+			children = (
+				7B341B931C5086AB0020AC67 /* GarageSaleTests.swift */,
+				7B341B951C5086AB0020AC67 /* Info.plist */,
+			);
+			path = GarageSaleTests;
+			sourceTree = "<group>";
+		};
+		7B341B9D1C5086AB0020AC67 /* GarageSaleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7B341B9E1C5086AB0020AC67 /* GarageSaleUITests.swift */,
+				7B341BA01C5086AB0020AC67 /* Info.plist */,
+			);
+			path = GarageSaleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B341B771C5086AA0020AC67 /* GarageSale */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B341BA31C5086AB0020AC67 /* Build configuration list for PBXNativeTarget "GarageSale" */;
+			buildPhases = (
+				7B341B741C5086AA0020AC67 /* Sources */,
+				7B341B751C5086AA0020AC67 /* Frameworks */,
+				7B341B761C5086AA0020AC67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GarageSale;
+			productName = GarageSale;
+			productReference = 7B341B781C5086AA0020AC67 /* GarageSale.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7B341B8E1C5086AB0020AC67 /* GarageSaleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B341BA61C5086AB0020AC67 /* Build configuration list for PBXNativeTarget "GarageSaleTests" */;
+			buildPhases = (
+				7B341B8B1C5086AB0020AC67 /* Sources */,
+				7B341B8C1C5086AB0020AC67 /* Frameworks */,
+				7B341B8D1C5086AB0020AC67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B341B911C5086AB0020AC67 /* PBXTargetDependency */,
+			);
+			name = GarageSaleTests;
+			productName = GarageSaleTests;
+			productReference = 7B341B8F1C5086AB0020AC67 /* GarageSaleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7B341B991C5086AB0020AC67 /* GarageSaleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B341BA91C5086AB0020AC67 /* Build configuration list for PBXNativeTarget "GarageSaleUITests" */;
+			buildPhases = (
+				7B341B961C5086AB0020AC67 /* Sources */,
+				7B341B971C5086AB0020AC67 /* Frameworks */,
+				7B341B981C5086AB0020AC67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7B341B9C1C5086AB0020AC67 /* PBXTargetDependency */,
+			);
+			name = GarageSaleUITests;
+			productName = GarageSaleUITests;
+			productReference = 7B341B9A1C5086AB0020AC67 /* GarageSaleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B341B701C5086AA0020AC67 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "mitchell hudson";
+				TargetAttributes = {
+					7B341B771C5086AA0020AC67 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					7B341B8E1C5086AB0020AC67 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 7B341B771C5086AA0020AC67;
+					};
+					7B341B991C5086AB0020AC67 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 7B341B771C5086AA0020AC67;
+					};
+				};
+			};
+			buildConfigurationList = 7B341B731C5086AA0020AC67 /* Build configuration list for PBXProject "GarageSale" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B341B6F1C5086AA0020AC67;
+			productRefGroup = 7B341B791C5086AA0020AC67 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B341B771C5086AA0020AC67 /* GarageSale */,
+				7B341B8E1C5086AB0020AC67 /* GarageSaleTests */,
+				7B341B991C5086AB0020AC67 /* GarageSaleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B341B761C5086AA0020AC67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B341B891C5086AA0020AC67 /* LaunchScreen.storyboard in Resources */,
+				7B341B861C5086AA0020AC67 /* Assets.xcassets in Resources */,
+				7B341B811C5086AA0020AC67 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B341B8D1C5086AB0020AC67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B341B981C5086AB0020AC67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B341B741C5086AA0020AC67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B341B7E1C5086AA0020AC67 /* ViewController.swift in Sources */,
+				7B341B841C5086AA0020AC67 /* GarageSale.xcdatamodeld in Sources */,
+				7B341B7C1C5086AA0020AC67 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B341B8B1C5086AB0020AC67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B341B941C5086AB0020AC67 /* GarageSaleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7B341B961C5086AB0020AC67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B341B9F1C5086AB0020AC67 /* GarageSaleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7B341B911C5086AB0020AC67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B341B771C5086AA0020AC67 /* GarageSale */;
+			targetProxy = 7B341B901C5086AB0020AC67 /* PBXContainerItemProxy */;
+		};
+		7B341B9C1C5086AB0020AC67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B341B771C5086AA0020AC67 /* GarageSale */;
+			targetProxy = 7B341B9B1C5086AB0020AC67 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7B341B7F1C5086AA0020AC67 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B341B801C5086AA0020AC67 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7B341B871C5086AA0020AC67 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B341B881C5086AA0020AC67 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B341BA11C5086AB0020AC67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B341BA21C5086AB0020AC67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B341BA41C5086AB0020AC67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GarageSale/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.webdevils.GarageSale;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7B341BA51C5086AB0020AC67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GarageSale/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.webdevils.GarageSale;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7B341BA71C5086AB0020AC67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GarageSaleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.webdevils.GarageSaleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GarageSale.app/GarageSale";
+			};
+			name = Debug;
+		};
+		7B341BA81C5086AB0020AC67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GarageSaleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.webdevils.GarageSaleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GarageSale.app/GarageSale";
+			};
+			name = Release;
+		};
+		7B341BAA1C5086AB0020AC67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GarageSaleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.webdevils.GarageSaleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GarageSale;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		7B341BAB1C5086AB0020AC67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GarageSaleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.webdevils.GarageSaleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GarageSale;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B341B731C5086AA0020AC67 /* Build configuration list for PBXProject "GarageSale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B341BA11C5086AB0020AC67 /* Debug */,
+				7B341BA21C5086AB0020AC67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B341BA31C5086AB0020AC67 /* Build configuration list for PBXNativeTarget "GarageSale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B341BA41C5086AB0020AC67 /* Debug */,
+				7B341BA51C5086AB0020AC67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7B341BA61C5086AB0020AC67 /* Build configuration list for PBXNativeTarget "GarageSaleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B341BA71C5086AB0020AC67 /* Debug */,
+				7B341BA81C5086AB0020AC67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7B341BA91C5086AB0020AC67 /* Build configuration list for PBXNativeTarget "GarageSaleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B341BAA1C5086AB0020AC67 /* Debug */,
+				7B341BAB1C5086AB0020AC67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7B341B821C5086AA0020AC67 /* GarageSale.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7B341B831C5086AA0020AC67 /* GarageSale.xcdatamodel */,
+			);
+			currentVersion = 7B341B831C5086AA0020AC67 /* GarageSale.xcdatamodel */;
+			path = GarageSale.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 7B341B701C5086AA0020AC67 /* Project object */;
+}
