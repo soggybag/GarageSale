@@ -15,6 +15,32 @@
 		7B341B891C5086AA0020AC67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B341B871C5086AA0020AC67 /* LaunchScreen.storyboard */; };
 		7B341B941C5086AB0020AC67 /* GarageSaleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341B931C5086AB0020AC67 /* GarageSaleTests.swift */; };
 		7B341B9F1C5086AB0020AC67 /* GarageSaleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341B9E1C5086AB0020AC67 /* GarageSaleUITests.swift */; };
+		7B341BB21C5086CC0020AC67 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BAC1C5086CC0020AC67 /* Bolts.framework */; };
+		7B341BB31C5086CC0020AC67 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BAD1C5086CC0020AC67 /* Parse.framework */; };
+		7B341BB41C5086CC0020AC67 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BAE1C5086CC0020AC67 /* ParseFacebookUtils.framework */; };
+		7B341BB51C5086CC0020AC67 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BAF1C5086CC0020AC67 /* ParseFacebookUtilsV4.framework */; };
+		7B341BB61C5086CC0020AC67 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BB01C5086CC0020AC67 /* ParseTwitterUtils.framework */; };
+		7B341BB71C5086CC0020AC67 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BB11C5086CC0020AC67 /* ParseUI.framework */; };
+		7B341BBA1C5087230020AC67 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BB91C5087230020AC67 /* AudioToolbox.framework */; };
+		7B341BBC1C50872E0020AC67 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BBB1C50872E0020AC67 /* CFNetwork.framework */; };
+		7B341BBE1C50873D0020AC67 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BBD1C50873D0020AC67 /* CoreGraphics.framework */; };
+		7B341BC01C5087460020AC67 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BBF1C5087460020AC67 /* CoreLocation.framework */; };
+		7B341BC21C5087520020AC67 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BC11C5087520020AC67 /* QuartzCore.framework */; };
+		7B341BC41C50875D0020AC67 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BC31C50875D0020AC67 /* Security.framework */; };
+		7B341BC61C5087670020AC67 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BC51C5087670020AC67 /* StoreKit.framework */; };
+		7B341BC81C5087760020AC67 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BC71C5087760020AC67 /* SystemConfiguration.framework */; };
+		7B341BCA1C50878A0020AC67 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BC91C50878A0020AC67 /* libz.tbd */; };
+		7B341BCC1C5087970020AC67 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BCB1C5087970020AC67 /* libsqlite3.tbd */; };
+		7B341BCE1C508BFF0020AC67 /* GarageSaleQueryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341BCD1C508BFF0020AC67 /* GarageSaleQueryTableViewController.swift */; };
+		7B341BD01C508E640020AC67 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B341BCF1C508E640020AC67 /* MapKit.framework */; };
+		7B341BD21C5096420020AC67 /* AddGarageSaleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341BD11C5096420020AC67 /* AddGarageSaleViewController.swift */; };
+		7B341BD41C50A22F0020AC67 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341BD31C50A22F0020AC67 /* LoginViewController.swift */; };
+		7B341BD61C517B330020AC67 /* EZLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341BD51C517B330020AC67 /* EZLoadingActivity.swift */; };
+		7B341BD81C5185040020AC67 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B341BD71C5185040020AC67 /* ProfileViewController.swift */; };
+		7B74E9B31C51D6B000E91BFA /* GarageSaleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E9B21C51D6B000E91BFA /* GarageSaleDetailViewController.swift */; };
+		7B74E9B51C51F95800E91BFA /* GarageSaleMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E9B41C51F95800E91BFA /* GarageSaleMarker.swift */; };
+		7B74E9B71C52876B00E91BFA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E9B61C52876B00E91BFA /* Constants.swift */; };
+		7B74E9FD1C534F7200E91BFA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E9FC1C534F7200E91BFA /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +75,32 @@
 		7B341B9A1C5086AB0020AC67 /* GarageSaleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GarageSaleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B341B9E1C5086AB0020AC67 /* GarageSaleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageSaleUITests.swift; sourceTree = "<group>"; };
 		7B341BA01C5086AB0020AC67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B341BAC1C5086CC0020AC67 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		7B341BAD1C5086CC0020AC67 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		7B341BAE1C5086CC0020AC67 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		7B341BAF1C5086CC0020AC67 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		7B341BB01C5086CC0020AC67 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
+		7B341BB11C5086CC0020AC67 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		7B341BB91C5087230020AC67 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7B341BBB1C50872E0020AC67 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7B341BBD1C50873D0020AC67 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7B341BBF1C5087460020AC67 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7B341BC11C5087520020AC67 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7B341BC31C50875D0020AC67 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7B341BC51C5087670020AC67 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7B341BC71C5087760020AC67 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7B341BC91C50878A0020AC67 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7B341BCB1C5087970020AC67 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		7B341BCD1C508BFF0020AC67 /* GarageSaleQueryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarageSaleQueryTableViewController.swift; sourceTree = "<group>"; };
+		7B341BCF1C508E640020AC67 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7B341BD11C5096420020AC67 /* AddGarageSaleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGarageSaleViewController.swift; sourceTree = "<group>"; };
+		7B341BD31C50A22F0020AC67 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7B341BD51C517B330020AC67 /* EZLoadingActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZLoadingActivity.swift; sourceTree = "<group>"; };
+		7B341BD71C5185040020AC67 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7B74E9B21C51D6B000E91BFA /* GarageSaleDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarageSaleDetailViewController.swift; sourceTree = "<group>"; };
+		7B74E9B41C51F95800E91BFA /* GarageSaleMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarageSaleMarker.swift; sourceTree = "<group>"; };
+		7B74E9B61C52876B00E91BFA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7B74E9FC1C534F7200E91BFA /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +108,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B341BCC1C5087970020AC67 /* libsqlite3.tbd in Frameworks */,
+				7B341BCA1C50878A0020AC67 /* libz.tbd in Frameworks */,
+				7B341BC81C5087760020AC67 /* SystemConfiguration.framework in Frameworks */,
+				7B341BC61C5087670020AC67 /* StoreKit.framework in Frameworks */,
+				7B341BC41C50875D0020AC67 /* Security.framework in Frameworks */,
+				7B341BC21C5087520020AC67 /* QuartzCore.framework in Frameworks */,
+				7B341BC01C5087460020AC67 /* CoreLocation.framework in Frameworks */,
+				7B341BBE1C50873D0020AC67 /* CoreGraphics.framework in Frameworks */,
+				7B341BBC1C50872E0020AC67 /* CFNetwork.framework in Frameworks */,
+				7B341BD01C508E640020AC67 /* MapKit.framework in Frameworks */,
+				7B341BBA1C5087230020AC67 /* AudioToolbox.framework in Frameworks */,
+				7B341BB71C5086CC0020AC67 /* ParseUI.framework in Frameworks */,
+				7B341BB31C5086CC0020AC67 /* Parse.framework in Frameworks */,
+				7B341BB21C5086CC0020AC67 /* Bolts.framework in Frameworks */,
+				7B341BB51C5086CC0020AC67 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				7B341BB41C5086CC0020AC67 /* ParseFacebookUtils.framework in Frameworks */,
+				7B341BB61C5086CC0020AC67 /* ParseTwitterUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +152,7 @@
 				7B341B921C5086AB0020AC67 /* GarageSaleTests */,
 				7B341B9D1C5086AB0020AC67 /* GarageSaleUITests */,
 				7B341B791C5086AA0020AC67 /* Products */,
+				7B341BB81C5086D60020AC67 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,8 +170,17 @@
 			isa = PBXGroup;
 			children = (
 				7B341B7B1C5086AA0020AC67 /* AppDelegate.swift */,
-				7B341B7D1C5086AA0020AC67 /* ViewController.swift */,
 				7B341B7F1C5086AA0020AC67 /* Main.storyboard */,
+				7B74E9B21C51D6B000E91BFA /* GarageSaleDetailViewController.swift */,
+				7B341BD71C5185040020AC67 /* ProfileViewController.swift */,
+				7B341B7D1C5086AA0020AC67 /* ViewController.swift */,
+				7B74E9FC1C534F7200E91BFA /* Protocols.swift */,
+				7B74E9B61C52876B00E91BFA /* Constants.swift */,
+				7B74E9B41C51F95800E91BFA /* GarageSaleMarker.swift */,
+				7B341BCD1C508BFF0020AC67 /* GarageSaleQueryTableViewController.swift */,
+				7B341BD31C50A22F0020AC67 /* LoginViewController.swift */,
+				7B341BD11C5096420020AC67 /* AddGarageSaleViewController.swift */,
+				7B341BD51C517B330020AC67 /* EZLoadingActivity.swift */,
 				7B341B851C5086AA0020AC67 /* Assets.xcassets */,
 				7B341B871C5086AA0020AC67 /* LaunchScreen.storyboard */,
 				7B341B8A1C5086AA0020AC67 /* Info.plist */,
@@ -126,6 +205,30 @@
 				7B341BA01C5086AB0020AC67 /* Info.plist */,
 			);
 			path = GarageSaleUITests;
+			sourceTree = "<group>";
+		};
+		7B341BB81C5086D60020AC67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B341BCF1C508E640020AC67 /* MapKit.framework */,
+				7B341BCB1C5087970020AC67 /* libsqlite3.tbd */,
+				7B341BC91C50878A0020AC67 /* libz.tbd */,
+				7B341BC71C5087760020AC67 /* SystemConfiguration.framework */,
+				7B341BC51C5087670020AC67 /* StoreKit.framework */,
+				7B341BC31C50875D0020AC67 /* Security.framework */,
+				7B341BC11C5087520020AC67 /* QuartzCore.framework */,
+				7B341BBF1C5087460020AC67 /* CoreLocation.framework */,
+				7B341BBD1C50873D0020AC67 /* CoreGraphics.framework */,
+				7B341BBB1C50872E0020AC67 /* CFNetwork.framework */,
+				7B341BB91C5087230020AC67 /* AudioToolbox.framework */,
+				7B341BAC1C5086CC0020AC67 /* Bolts.framework */,
+				7B341BAD1C5086CC0020AC67 /* Parse.framework */,
+				7B341BAE1C5086CC0020AC67 /* ParseFacebookUtils.framework */,
+				7B341BAF1C5086CC0020AC67 /* ParseFacebookUtilsV4.framework */,
+				7B341BB01C5086CC0020AC67 /* ParseTwitterUtils.framework */,
+				7B341BB11C5086CC0020AC67 /* ParseUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +299,11 @@
 				TargetAttributes = {
 					7B341B771C5086AA0020AC67 = {
 						CreatedOnToolsVersion = 7.2;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7B341B8E1C5086AB0020AC67 = {
 						CreatedOnToolsVersion = 7.2;
@@ -259,8 +367,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B341BD41C50A22F0020AC67 /* LoginViewController.swift in Sources */,
+				7B74E9B71C52876B00E91BFA /* Constants.swift in Sources */,
+				7B341BD61C517B330020AC67 /* EZLoadingActivity.swift in Sources */,
+				7B74E9FD1C534F7200E91BFA /* Protocols.swift in Sources */,
+				7B341BCE1C508BFF0020AC67 /* GarageSaleQueryTableViewController.swift in Sources */,
+				7B74E9B51C51F95800E91BFA /* GarageSaleMarker.swift in Sources */,
+				7B74E9B31C51D6B000E91BFA /* GarageSaleDetailViewController.swift in Sources */,
 				7B341B7E1C5086AA0020AC67 /* ViewController.swift in Sources */,
 				7B341B841C5086AA0020AC67 /* GarageSale.xcdatamodeld in Sources */,
+				7B341BD21C5096420020AC67 /* AddGarageSaleViewController.swift in Sources */,
+				7B341BD81C5185040020AC67 /* ProfileViewController.swift in Sources */,
 				7B341B7C1C5086AA0020AC67 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +518,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GarageSale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.webdevils.GarageSale;
@@ -412,6 +533,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GarageSale/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.webdevils.GarageSale;
@@ -486,6 +611,7 @@
 				7B341BA51C5086AB0020AC67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B341BA61C5086AB0020AC67 /* Build configuration list for PBXNativeTarget "GarageSaleTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +620,7 @@
 				7B341BA81C5086AB0020AC67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B341BA91C5086AB0020AC67 /* Build configuration list for PBXNativeTarget "GarageSaleUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +629,7 @@
 				7B341BAB1C5086AB0020AC67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

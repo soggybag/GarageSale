@@ -36,5 +36,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Garage Sale App wants to show your location on map.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Garage Sale App wants to use your location to post a garage sale.</string>
 </dict>
 </plist>
