@@ -7,7 +7,35 @@
 //
 
 
-// 
+/**
+    AddGarageSaleViewController - A view to handle adding new Garage Sales. 
+    This view posts a new garage sale to parse.
+*/
+
+// TODO: Show progress while fetching geo loc
+// TODO: Format date as a range
+// TODO: Add category to garage sale
+/*
+    * Categories:
+    * Clothing
+    * Toys
+    * Furniture
+    * Tools
+*/
+
+/*
+
+let formatter = NSDateIntervalFormatter()
+formatter.dateStyle = .NoStyle
+formatter.timeStyle = .ShortStyle
+
+let fromDate = NSDate()
+let toDate = fromDate.dateByAddingTimeInterval(10000)
+
+let string = formatter.stringFromDate(fromDate, toDate: toDate)
+// 5:49 - 8:36 PM
+
+*/
 
 import UIKit
 import CoreLocation
@@ -23,16 +51,32 @@ class AddGarageSaleViewController:
     UIImagePickerControllerDelegate,
     UINavigationControllerDelegate {
     
+    /**
+        Form Data 
+        
+        - date: The date and time the garage sale will occur
+        - endDate: The date and time the garage sale will end
+        - geolocation: The geolocation of the garage sale
+        - currentDateText: Displays the starting date time of the garage sale. 
+        - locationManager: An instance of CLLocationManager
+    */
     
+    private var date: NSDate?
+    private var endDate: NSDate?
+    private let dateTimeFormatter = NSDateFormatter()
+    private let datePicker = UIDatePicker()
+    private let datePickerLabel = UILabel()
     
-    var date: NSDate?
-    var endDate: NSDate?
-    var geolocation: CLLocation?
-    var currentDateText: UITextField?
-    var locationManager: CLLocationManager!
+    private var geolocation: CLLocation?
+    private var currentDateText: UITextField?
+    private var locationManager: CLLocationManager!
+    
+    private var activeText: UITextField?
     
     
     // MARK: IBOutlets
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var dateText: UITextField!
@@ -40,6 +84,8 @@ class AddGarageSaleViewController:
     @IBOutlet weak var notesText: UITextView!
     @IBOutlet weak var endDateText: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addImageButton: UIButton!
+    @IBOutlet weak var locationButton: UIButton!
     
     
     // MARK: IBActions
@@ -49,7 +95,6 @@ class AddGarageSaleViewController:
     }
     
     @IBAction func postButtonTapped(sender: UIButton) {
-        // TODO: Handle Post Garage Sale
         print("Posting Garage Sale...")
         postNewGarageSale()
     }
@@ -61,14 +106,38 @@ class AddGarageSaleViewController:
     @IBAction func addImageButtonTpped(sender: UIButton) {
         let photoPicker = UIImagePickerController()
         photoPicker.delegate = self
-        presentViewController(photoPicker, animated: true, completion: nil)
+        
+        let alert = UIAlertController(title: "Add an image to your posting", message: "Choose an image from your library, or take a photo with the camera.", preferredStyle: .ActionSheet)
+        let photoLib = UIAlertAction(title: "Photo Library", style: .Default) { (alert: UIAlertAction) -> Void in
+            photoPicker.allowsEditing = true
+            photoPicker.sourceType = .PhotoLibrary
+            photoPicker.modalPresentationStyle = .FullScreen
+            self.presentViewController(photoPicker, animated: true, completion: nil)
+        }
+        
+        let camera = UIAlertAction(title: "Take a Photo", style: .Default) { (alert: UIAlertAction) -> Void in
+            photoPicker.allowsEditing = true
+            photoPicker.sourceType = .Camera
+            photoPicker.modalPresentationStyle = .FullScreen
+            self.presentViewController(photoPicker, animated: true, completion: nil)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (alert: UIAlertAction) -> Void in
+            //
+        }
+        
+        alert.addAction(photoLib)
+        alert.addAction(cancel)
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) == true {
+            alert.addAction(camera)
+        }
+        
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonTapped(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
     
     
     
@@ -79,10 +148,8 @@ class AddGarageSaleViewController:
         print("Did finish picking image")
         picker.dismissViewControllerAnimated(true, completion: nil)
         imageView.image = image
+        addImageButton.setTitle("", forState: .Normal)
     }
-    
-    
-    
     
     
     
@@ -90,6 +157,14 @@ class AddGarageSaleViewController:
     
     func postNewGarageSale() {
         // TODO: Validate form
+        // Title? 
+        // Address? 
+        // Start Date?
+        // End Date?
+        // Description is not required
+        // Image is not required
+        
+        
         // TODO: Send new GarageSale to Parse. 
         let garageSale = PFObject(className: "GarageSale")
         // TODO: Check current user
@@ -173,15 +248,25 @@ class AddGarageSaleViewController:
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        geolocation = locations[0]
+        if locations.count > 0 {
+            geolocation = locations[0]
+            locationButton.setTitle("✓", forState: .Normal)
+        }
+        
         
         CLGeocoder().reverseGeocodeLocation(manager.location!) { (placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            print("Reverse Geolocation...")
             if error != nil {
                 print("Reverse geocoder error: \(error?.localizedDescription)")
                 return
             }
             
             if placemarks?.count > 0 {
+                print("\(placemarks?.count) placemarks")
+                for pm in placemarks! {
+                    print(pm)
+                }
+                
                 let pm = placemarks![0]
                 self.displayLocation(pm)
             } else {
@@ -207,7 +292,20 @@ class AddGarageSaleViewController:
     
     
     
-    // MARK: - Text Field 
+    // MARK: - Text Field Delegate methods
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField == dateText {
+            datePickerLabel.text = "Start Date"
+        } else {
+            datePickerLabel.text = "End Date"
+        }
+        activeText = textField
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        activeText = nil
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -215,17 +313,65 @@ class AddGarageSaleViewController:
         return true
     }
     
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        if textField == dateText {
+            datePicker.minimumDate = NSDate()
+        } else if textField == endDateText {
+            datePicker.minimumDate = date
+        }
+        
+        return true
+    }
     
+    func keyboardDidShow(notification: NSNotification) {
+        if let activeText = self.activeText, keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue() {
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+            self.scrollView.contentInset = contentInsets
+            self.scrollView.scrollIndicatorInsets = contentInsets
+            var aRect = self.view.frame
+            aRect.size.height -= keyboardSize.size.height
+            if !CGRectContainsPoint(aRect, activeText.frame.origin) {
+                self.scrollView.scrollRectToVisible(activeText.frame, animated: true)
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        let contentInsets = UIEdgeInsetsZero
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    
+    
+    // MARK: - Handle Date Picker 
     
     func makeDatePickerWithDoneButton() {
+        
+        // TODO: Add a label showing "start time" or "end time"
+        // TODO: Move done button to the right side
+        // Label on the left of the of the input view
+        
         let inputView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 240))
-        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 40, width: 0, height: 0))
+        datePicker.frame = CGRect(x: 0, y: 40, width: view.frame.width, height: 200)
         datePicker.datePickerMode = .DateAndTime
+        datePicker.minuteInterval = 15
+        
         inputView.addSubview(datePicker)
+        
         datePicker.addTarget(self, action: "datePickerPickedDate:", forControlEvents: .ValueChanged)
-        let doneButton = UIButton(frame: CGRect(x: (view.frame.width/2)-(100/2), y: 0, width: 100, height: 40))
+        
+        let doneButton = UIButton(frame: CGRect(x: view.frame.width - 100, y: 0, width: 100, height: 40))
         doneButton.setTitle("Done", forState: .Normal)
         doneButton.addTarget(self, action: "inputViewDone:", forControlEvents: .TouchUpInside)
+        doneButton.backgroundColor = UIColor.redColor()
+        inputView.addSubview(doneButton)
+        
+        datePickerLabel.frame = CGRect(x: 0, y: 0, width: view.frame.width - 100, height: 40)
+        datePickerLabel.font = UIFont.systemFontOfSize(18)
+        datePickerLabel.text = "Hello"
+        datePickerLabel.textColor = UIColor.blackColor()
+        inputView.addSubview(datePickerLabel)
         
         datePickerPickedDate(datePicker)
         dateText.inputView = inputView
@@ -235,16 +381,35 @@ class AddGarageSaleViewController:
     
     func datePickerPickedDate(sender: UIDatePicker) {
         // TODO: Handle Date
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .FullStyle
         date = sender.date
-        if currentDateText != nil {
-            currentDateText!.text = formatter.stringFromDate(date!)
+        if let textField = currentDateText {
+            // currentDateText!.text = dateTimeFormatter.stringFromDate(date!)
+            displayDate(date!, textField: currentDateText!)
+            if textField == dateText {
+                if let dateOrder = date?.compare(endDate!) {
+                    if dateOrder == NSComparisonResult.OrderedDescending {
+                        endDate = date
+                        displayDate(endDate!, textField: endDateText)
+                    }
+                }
+            }
         }
     }
     
     func inputViewDone(sender: UIButton) {
         // TODO: Handle Done Button
+        view.endEditing(true)
+    }
+    
+    func displayDate(date: NSDate, textField: UITextField) {
+        // TODO: Rewrite as calculated properties for date and endDate
+        textField.text = dateTimeFormatter.stringFromDate(date)
+    }
+    
+    
+    // Configuer the Date formatter
+    func configureDateFormatter() {
+        dateTimeFormatter.dateFormat = Constants.date.startEndDateTimeFormat
     }
     
     
@@ -255,17 +420,43 @@ class AddGarageSaleViewController:
         view.endEditing(true)
     }
     
+    // TODO: Calculate start and end dates
+    // Start date predicts next Sat 10 AM - This could be set in user profile
+    // End
+    
+    
     
     // MARK: - View Lifecycle
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        date = NSDate()
+        endDate = NSDate()
+        
+        displayDate(date!, textField: dateText)
+        displayDate(endDate!, textField: endDateText)
+        
+        
+        // TODO: Resolve location vs address...
+        getLocation()
+        // For now the location is entered when the view appears
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureDateFormatter()
+        
         dateText.delegate = self
         titleText.delegate = self
         addressText.delegate = self
         notesText.delegate = self
         endDateText.delegate = self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         makeDatePickerWithDoneButton()
     }

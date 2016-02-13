@@ -14,15 +14,26 @@ import ParseUI
 // User Profile 
 // Displayed as a modal view
 
+// TODO: Resize Profile image to 640x640
+// TODO: Confirm Email
+// TODO: Use Done button as Save when setting profile image
+// TODO: Show Spinner while loading profile image
 
-class ProfileViewController: UIViewController {
 
+class ProfileViewController: UIViewController,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate {
+    
+    //
     var delegate: ProfileViewControllerDelegate?
     
     // MARK: IBOutlets
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var profileImage: PFImageView!
+    @IBOutlet weak var profileImageView: PFImageView!
+    @IBOutlet weak var profileImageSpinner: UIActivityIndicatorView!
+    @IBOutlet weak var addProfileImageButton: UIButton!
+    
     
     
     // MARK: IBActions
@@ -39,16 +50,72 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func addProfileImageButtonTapped(sender: UIButton) {
+        addProfileImage()
+    }
+    
+    @IBAction func saveButtonTapped(sender: UIButton) {
+        saveProfileImage()
+    }
+    
+    
+    // MARK: Profile Image Update
+    
+    func saveProfileImage() {
+        // TODO: Save changes to profile
+        // TODO: Upload profile image
+        if let image = profileImageView.image {
+            print("Get profile image")
+            let size = CGSize(width: 640, height: 640)
+            let hasAlpha = false
+            let scale: CGFloat = 0
+            UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+            image.drawInRect(CGRect(origin: CGPointZero, size: size))
+            let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            if let jpeg = UIImageJPEGRepresentation(scaledImage, 0.8) {
+                print("Made Jpeg from profile image")
+                UserProfile.sharedInstance.setImageData(jpeg)
+            }
+        }
+
+    }
+    
+    func addProfileImage() {
+        let photoPicker = UIImagePickerController()
+        photoPicker.delegate = self
+        presentViewController(photoPicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        profileImageView.image = image
+        picker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     
     func displayUserInfo() {
-        if let user = PFUser.currentUser() {
-            nameLabel.text = user[Constants.user.username] as? String
-            profileImage.file = user[Constants.user.profileImage] as? PFFile
-            // TODO: Show Spinner
-            profileImage.loadInBackground({ (image: UIImage?, error: NSError?) -> Void in
-                // TODO: Hide Spinner
-            })
+        if let _ = PFUser.currentUser() {
+            if let username = UserProfile.sharedInstance.username {
+                nameLabel.text = username
+            }
+            
+            if let profileImage = UserProfile.sharedInstance.profileImage {
+                // Load the profile image
+                profileImageView.file = profileImage
+                profileImageSpinner.startAnimating()
+                print("Profile image spinner start ")
+                profileImageView.loadInBackground({ (image: UIImage?, error: NSError?) -> Void in
+                    self.profileImageSpinner.stopAnimating()
+                    self.profileImageView.contentMode = .ScaleAspectFill
+                })
+            } else {
+                // No profile image show
+                profileImageView.backgroundColor = UIColor.redColor()
+                addProfileImageButton.hidden = false
+            }
         } else {
+            // No user logged in dismiss this view
             dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -58,7 +125,7 @@ class ProfileViewController: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        // addProfileImageButton.hidden = true
         displayUserInfo()
     }
     
@@ -66,7 +133,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        profileImageView.clipsToBounds = true
+        profileImageView.contentMode = .ScaleAspectFill
     }
 
     override func didReceiveMemoryWarning() {

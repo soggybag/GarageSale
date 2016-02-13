@@ -15,17 +15,29 @@ struct Constants {
     
     struct ClassNames {
         static let GarageSale = "GarageSale"
+        static let Profile = "Profile"
     }
     
     
     struct garageSale {
         static let title = "title"
         static let geoLoc = "geoLoc"
+        static let startDate = "startDate"
+        static let endDate = "endDate"
+        static let user = "user"
+        static let address = "address"
+        static let image = "image"
     }
     
     struct user {
         static let profileImage = "profileImage"
         static let username = "username"
+    }
+    
+    struct profile {
+        static let username = "username"
+        static let profileImage = "profileImage"
+        static let user = "user"
     }
     
     struct map {
@@ -36,6 +48,11 @@ struct Constants {
         static let ProfileViewController = "ProfileViewController"
         static let LoginViewController = "LoginViewController"
         static let AddGarageSaleViewController = "AddGarageSaleViewController"
+        static let SignupViewController = "SignupViewController"
+    }
+    
+    struct date {
+        static let startEndDateTimeFormat = "EEEE, MMMM d h:mm a"
     }
     
 }

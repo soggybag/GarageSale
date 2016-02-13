@@ -6,13 +6,21 @@
 //  Copyright © 2016 mitchell hudson. All rights reserved.
 //
 
+
+// TODO: Custom Marker
+
+
 import UIKit
 import MapKit
 import CoreLocation
 import Parse
 
-class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewControllerDelegate {
-
+class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewControllerDelegate, LoginSignUpViewControllerDelegate {
+    
+    let milesRadius: Double = 50
+    
+    var garageSaleMarkers = [PFObject]()
+    var garageSaleMarkerIDs = [String]()
     
     var locationManager: CLLocationManager!
     var profileButton: UIBarButtonItem!
@@ -25,23 +33,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
     @IBOutlet weak var mapView: MKMapView!
     
     
-    
-    
     func fetchGarageSalesInLocation(location: CLLocation) {
         let query = PFQuery(className: Constants.ClassNames.GarageSale)
         let geoPoint = PFGeoPoint(location: location)
-        query.whereKey(Constants.garageSale.geoLoc, nearGeoPoint: geoPoint, withinMiles: 10)
+        query.whereKey(Constants.garageSale.geoLoc, nearGeoPoint: geoPoint, withinMiles: milesRadius)
         
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
-            print("Found GarageSales")
             if let garageSales = results {
+                // Get annotations
+                
                 for garageSale in garageSales {
-                    // TODO: Place Markers for each GarageSale found in results
-                    if let title = garageSale[Constants.garageSale.title] as? String {
-                        if let geoLoc = garageSale[Constants.garageSale.geoLoc] as? PFGeoPoint {
-                            let location = CLLocationCoordinate2D(latitude: geoLoc.latitude, longitude: geoLoc.longitude)
-                            let marker = GarageSaleMarker(title: title, coordinate: location, info: "Info string", garageSale: garageSale)
-                            self.mapView.addAnnotation(marker)
+                    // TODO: PREVENT DUPLICATE MARKERS!
+                    // get annotations 
+                    // contains
+                    
+                    if !self.garageSaleMarkers.contains(garageSale) {
+                        self.garageSaleMarkers.append(garageSale)
+                        if let title = garageSale[Constants.garageSale.title] as? String {
+                            if let geoLoc = garageSale[Constants.garageSale.geoLoc] as? PFGeoPoint {
+                                let location = CLLocationCoordinate2D(latitude: geoLoc.latitude, longitude: geoLoc.longitude)
+                                let marker = GarageSaleMarker(title: title, coordinate: location, info: "Info string", garageSale: garageSale)
+                                self.mapView.addAnnotation(marker)
+                            }
                         }
                     }
                 }
@@ -49,25 +62,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
         }
     }
     
+    
     // Make annotationView
+    
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-        let identifier = "GarageSaleAnnotaion"
-        if annotation.isKindOfClass(GarageSaleMarker.self) {
-            var annotationView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier)
-            if annotationView == nil {
-                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                annotationView!.canShowCallout = true
-                
-                let btn = UIButton(type: .DetailDisclosure)
-                annotationView!.rightCalloutAccessoryView = btn
-            } else {
-                annotationView!.annotation = annotation
-            }
-            
-            return annotationView
+        if (annotation is MKUserLocation) {
+            return nil
         }
         
-        return nil
+        let reuseId = "garagesalemarker"
+        
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        if anView == nil {
+            // Create a custom marker image
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            anView!.image = UIImage(named: "Map-Marker")
+            anView!.canShowCallout = true
+            // Add a button to the callout
+            let btn = UIButton(type: .DetailDisclosure)
+            anView?.rightCalloutAccessoryView = btn
+        } else {
+            anView?.annotation = annotation
+        }
+        
+        return anView
     }
     
     func mapView(mapView: MKMapView!,
@@ -82,7 +100,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
     }
     
     
-    
     // MARK: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -93,18 +110,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
     }
     
     
-    
-    
     // MARK: - Show Login View Controller 
     
     // Show Login VC
     func showLoginViewController() {
-        if let loginVC = storyboard?.instantiateViewControllerWithIdentifier(Constants.views.LoginViewController) {
+        if let loginVC = storyboard?.instantiateViewControllerWithIdentifier(Constants.views.LoginViewController) as? LoginViewController {
+            loginVC.delegate = self
             presentViewController(loginVC, animated: true, completion: { () -> Void in
                 // 
             })
         }
     }
+    
+    // Show Signup VC
+    func showSignupViewController() {
+        if let signupVC = storyboard?.instantiateViewControllerWithIdentifier(Constants.views.SignupViewController) as? SignupViewController {
+            signupVC.delegate = self
+            presentViewController(signupVC, animated: true, completion: { () -> Void in
+                //
+            })
+        }
+    }
+    
     
     // Show Add new garage sale VC
     func showAddGarageSaleViewController() {
@@ -115,10 +142,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
             })
         }
     }
-    
-    
-    
-    
     
     
     // MARK: Set up bar buttons
@@ -137,7 +160,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
     }
     
     func profileButtonTapped(sender: UIBarButtonItem) {
-        // TODO: Show profile view
         if let profileVC = storyboard?.instantiateViewControllerWithIdentifier(Constants.views.ProfileViewController) as? ProfileViewController {
             profileVC.delegate = self
             presentViewController(profileVC, animated: true, completion: { () -> Void in
@@ -156,7 +178,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
             navigationItem.rightBarButtonItems = [loginButton]
         }
     }
-
     
     
     // ProfileViewControllerDelegate
@@ -169,6 +190,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
         PFUser.logOut()
         setupBarButtons()
         sender.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // LoginSignUpViewControllerDelegate
+    
+    func didLogInSignUp(sender: UIViewController) {
+        setupBarButtons()
+        sender.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func loginWantsToSignUp(sender: UIViewController) {
+        sender.dismissViewControllerAnimated(true) { () -> Void in
+            self.showSignupViewController()
+        }
+    }
+    
+    func signUpWantsToLogin(sender: UIViewController) {
+        sender.dismissViewControllerAnimated(true) { () -> Void in
+            self.showLoginViewController()
+        }
     }
     
     
@@ -198,18 +238,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
     }
     
     
-    
-    
-    
-    
-    
-    
     // MARK: - View Lifecycle
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("Map View will appear")
         configureBarButtons()
         showGarageSales()
     }

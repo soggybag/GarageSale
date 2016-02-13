@@ -11,13 +11,13 @@ import Parse
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    var delegate: LoginSignUpViewControllerDelegate?
     
     
     // MARK: IBOutlets
     
     @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
-    
     
     
     // MARK: IBActions
@@ -34,7 +34,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     if user != nil {
                         // login succesful
                         print("Login Successful")
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                        UserProfile.sharedInstance.loadProfile()
+                        if let delegate = self.delegate {
+                            delegate.didLogInSignUp(self)
+                        }
                     } else {
                         // Login Failed
                         print("Login Failed \(error) \(error?.userInfo)")
@@ -45,7 +48,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signupButtonTapped(sender: UIButton) {
-        
+        if let delegate = delegate {
+            delegate.loginWantsToSignUp(self)
+        }
+    }
+    
+    @IBAction func cancelButtonTapped(sender: UIButton) {
+        if let delegate = delegate {
+            delegate.done(self)
+        }
     }
     
     
