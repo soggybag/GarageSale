@@ -14,6 +14,9 @@ import ParseUI
 // User Profile 
 // Displayed as a modal view
 
+// TODO: Check for errors when uploading profile image. Display Activity view.
+// TODO: Close profile view after Save.
+
 // TODO: Resize Profile image to 640x640
 // TODO: Confirm Email
 // TODO: Use Done button as Save when setting profile image
@@ -88,6 +91,7 @@ class ProfileViewController: UIViewController,
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        print("Adding profile image")
         profileImageView.image = image
         picker.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -126,7 +130,7 @@ class ProfileViewController: UIViewController,
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         // addProfileImageButton.hidden = true
-        displayUserInfo()
+        print("Profile view will appear")
     }
     
     
@@ -135,6 +139,7 @@ class ProfileViewController: UIViewController,
 
         profileImageView.clipsToBounds = true
         profileImageView.contentMode = .ScaleAspectFill
+        displayUserInfo()
     }
 
     override func didReceiveMemoryWarning() {

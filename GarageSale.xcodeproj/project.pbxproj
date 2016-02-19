@@ -208,19 +208,13 @@
 			children = (
 				7B341B7B1C5086AA0020AC67 /* AppDelegate.swift */,
 				7B341B7F1C5086AA0020AC67 /* Main.storyboard */,
-				7B74E9B21C51D6B000E91BFA /* GarageSaleDetailViewController.swift */,
-				7B74EA021C53ECA000E91BFA /* Profile */,
-				7B74EA031C53ECB700E91BFA /* Map */,
-				7B341BD11C5096420020AC67 /* AddGarageSaleViewController.swift */,
-				7B341BCD1C508BFF0020AC67 /* GarageSaleQueryTableViewController.swift */,
-				7B55AC571C6E469A00509E85 /* CustomButton.swift */,
-				7BBC8A621C6FA8C300EC8BDB /* CustomImageView.swift */,
-				7B55AC3F1C6E454900509E85 /* TextFieldEffects */,
-				7B341BD31C50A22F0020AC67 /* LoginViewController.swift */,
-				7B74E9FE1C535C7500E91BFA /* SignupViewController.swift */,
-				7B74E9FC1C534F7200E91BFA /* Protocols.swift */,
-				7B74E9B61C52876B00E91BFA /* Constants.swift */,
-				7B341BD51C517B330020AC67 /* EZLoadingActivity.swift */,
+				7B4BFBC01C7677FF008ED202 /* Details View */,
+				7B74EA021C53ECA000E91BFA /* Profile View */,
+				7B74EA031C53ECB700E91BFA /* Map Garage Sales View */,
+				7B4BFBC11C767827008ED202 /* Add Garage Sale View */,
+				7B4BFBC21C767844008ED202 /* List Garage Sales View */,
+				7B4BFBC31C76786C008ED202 /* Helper Classes */,
+				7B4BFBC41C767890008ED202 /* Login Sign up Views */,
 				7B341B851C5086AA0020AC67 /* Assets.xcassets */,
 				7B341B871C5086AA0020AC67 /* LaunchScreen.storyboard */,
 				7B341B8A1C5086AA0020AC67 /* Info.plist */,
@@ -271,6 +265,52 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7B4BFBC01C7677FF008ED202 /* Details View */ = {
+			isa = PBXGroup;
+			children = (
+				7B74E9B21C51D6B000E91BFA /* GarageSaleDetailViewController.swift */,
+			);
+			name = "Details View";
+			sourceTree = "<group>";
+		};
+		7B4BFBC11C767827008ED202 /* Add Garage Sale View */ = {
+			isa = PBXGroup;
+			children = (
+				7B341BD11C5096420020AC67 /* AddGarageSaleViewController.swift */,
+			);
+			name = "Add Garage Sale View";
+			sourceTree = "<group>";
+		};
+		7B4BFBC21C767844008ED202 /* List Garage Sales View */ = {
+			isa = PBXGroup;
+			children = (
+				7B341BCD1C508BFF0020AC67 /* GarageSaleQueryTableViewController.swift */,
+			);
+			name = "List Garage Sales View";
+			sourceTree = "<group>";
+		};
+		7B4BFBC31C76786C008ED202 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7B74E9FC1C534F7200E91BFA /* Protocols.swift */,
+				7B55AC571C6E469A00509E85 /* CustomButton.swift */,
+				7BBC8A621C6FA8C300EC8BDB /* CustomImageView.swift */,
+				7B74E9B61C52876B00E91BFA /* Constants.swift */,
+				7B341BD51C517B330020AC67 /* EZLoadingActivity.swift */,
+				7B55AC3F1C6E454900509E85 /* TextFieldEffects */,
+			);
+			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		7B4BFBC41C767890008ED202 /* Login Sign up Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B341BD31C50A22F0020AC67 /* LoginViewController.swift */,
+				7B74E9FE1C535C7500E91BFA /* SignupViewController.swift */,
+			);
+			name = "Login Sign up Views";
+			sourceTree = "<group>";
+		};
 		7B55AC3F1C6E454900509E85 /* TextFieldEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,16 +330,16 @@
 			name = TextFieldEffects;
 			sourceTree = "<group>";
 		};
-		7B74EA021C53ECA000E91BFA /* Profile */ = {
+		7B74EA021C53ECA000E91BFA /* Profile View */ = {
 			isa = PBXGroup;
 			children = (
 				7B341BD71C5185040020AC67 /* ProfileViewController.swift */,
 				7B74EA001C53E7AF00E91BFA /* UserProfile.swift */,
 			);
-			name = Profile;
+			name = "Profile View";
 			sourceTree = "<group>";
 		};
-		7B74EA031C53ECB700E91BFA /* Map */ = {
+		7B74EA031C53ECB700E91BFA /* Map Garage Sales View */ = {
 			isa = PBXGroup;
 			children = (
 				7BBC8A6E1C6FEEF000EC8BDB /* Map-Marker.png */,
@@ -308,7 +348,7 @@
 				7B74E9B41C51F95800E91BFA /* GarageSaleMarker.swift */,
 				7BBC8A6C1C6FB9CC00EC8BDB /* GarageSaleMapMarker.swift */,
 			);
-			name = Map;
+			name = "Map Garage Sales View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

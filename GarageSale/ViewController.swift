@@ -8,21 +8,28 @@
 
 
 // TODO: Custom Marker
+// TODO: Add search radius to profile view as a param from UserProfile
 
 
+// Import Libraries
 import UIKit
 import MapKit
 import CoreLocation
 import Parse
 
-class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewControllerDelegate, LoginSignUpViewControllerDelegate {
+class ViewController: UIViewController,
+    CLLocationManagerDelegate,
+    ProfileViewControllerDelegate,
+    LoginSignUpViewControllerDelegate {
     
-    let milesRadius: Double = 50
+    let milesRadius: Double = 50    // Set the default search radius to search
     
-    var garageSaleMarkers = [PFObject]()
-    var garageSaleMarkerIDs = [String]()
+    var garageSaleMarkers = [PFObject]()    // store an array of Objects from Parse. Maybe this should be a set?
+    var garageSaleMarkerIDs = [String]()    // hold marker ids for map view
     
     var locationManager: CLLocationManager!
+    
+    // Some user interface elements
     var profileButton: UIBarButtonItem!
     var loginButton: UIBarButtonItem!
     var addButton: UIBarButtonItem!
@@ -33,21 +40,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
     @IBOutlet weak var mapView: MKMapView!
     
     
+    // Fetch Garage Sales in area 
+    
     func fetchGarageSalesInLocation(location: CLLocation) {
+        // Create a Query for Garage Sales. NOTE the class name comes from Constants!
         let query = PFQuery(className: Constants.ClassNames.GarageSale)
         let geoPoint = PFGeoPoint(location: location)
+        // Need a PFGeoPoint as the center for the search.
+        // Search for Garage Sales within a radius
         query.whereKey(Constants.garageSale.geoLoc, nearGeoPoint: geoPoint, withinMiles: milesRadius)
         
+        // Run the query and find some PFObjects
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
             if let garageSales = results {
                 // Get annotations
                 
                 for garageSale in garageSales {
-                    // TODO: PREVENT DUPLICATE MARKERS!
-                    // get annotations 
-                    // contains
-                    
+                    // Prevent duplicates. Would a Set work better here?
                     if !self.garageSaleMarkers.contains(garageSale) {
+                        // Add a marker and give it some info.
                         self.garageSaleMarkers.append(garageSale)
                         if let title = garageSale[Constants.garageSale.title] as? String {
                             if let geoLoc = garageSale[Constants.garageSale.geoLoc] as? PFGeoPoint {
@@ -63,16 +74,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
     }
     
     
+    // MARK: Map View Delegate
+    
     // Make annotationView
     
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        
+        // Skip this to prevent using a custom marker at the user position.
         if (annotation is MKUserLocation) {
             return nil
         }
         
+        // Set a reuse id for markers.
         let reuseId = "garagesalemarker"
         
+        // Get an available Marker
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        // If there are no markers make a new one
         if anView == nil {
             // Create a custom marker image
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
@@ -82,21 +100,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
             let btn = UIButton(type: .DetailDisclosure)
             anView?.rightCalloutAccessoryView = btn
         } else {
+            // Otherwise set the annotation on a recycled marker.
             anView?.annotation = annotation
         }
         
         return anView
     }
     
-    func mapView(mapView: MKMapView!,
-        annotationView view: MKAnnotationView!,
-        calloutAccessoryControlTapped control: UIControl!) {
+    // Handle a tapp on the (!) in the marker callout
+    func mapView(mapView: MKMapView!, annotationView view: MKAnnotationView!,calloutAccessoryControlTapped control: UIControl!) {
         
-            let garageSaleMarker = view.annotation as! GarageSaleMarker
-            let garageSale = garageSaleMarker.garageSale
-            
-            // Segue to Details view
-            performSegueWithIdentifier(Constants.Segues.mapToDetailsSegue, sender: garageSale)
+        let garageSaleMarker = view.annotation as! GarageSaleMarker
+        let garageSale = garageSaleMarker.garageSale
+        
+        // Segue to Details view
+        performSegueWithIdentifier(Constants.Segues.mapToDetailsSegue, sender: garageSale)
     }
     
     
@@ -145,20 +163,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
     
     
     // MARK: Set up bar buttons
+    
     func setupBarButtons() {
         addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addBarButtonTapped:")
         profileButton = UIBarButtonItem(title: "Profile", style: .Plain, target: self, action: "profileButtonTapped:")
         loginButton = UIBarButtonItem(title: "Login", style: .Plain, target: self, action: "loginBarButtonTapped:")
     }
     
+    // Handle login button
     func loginBarButtonTapped(sender: UIBarButtonItem) {
         showLoginViewController()
     }
     
+    // Handle + button
     func addBarButtonTapped(sender: UIBarButtonItem) {
         showAddGarageSaleViewController()
     }
     
+    // Handle Profile button
     func profileButtonTapped(sender: UIBarButtonItem) {
         if let profileVC = storyboard?.instantiateViewControllerWithIdentifier(Constants.views.ProfileViewController) as? ProfileViewController {
             profileVC.delegate = self
@@ -168,7 +190,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
         }
     }
     
-    
+    // Set up the bar buttons. Display the Login button when not logged in. 
+    // The Profile and + buttons are displayed instead when logged in.
     func configureBarButtons() {
         if let _ = PFUser.currentUser() {
             // Logged in show profile and + buttons
@@ -212,7 +235,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
     }
     
     
-    // MARK: - Location
+    // MARK: - Get the current location
     // Show Garage Sales
     
     func showGarageSales() {
@@ -225,6 +248,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, ProfileViewCo
         }
     }
     
+
+    // MARK: Location Manager delegate 
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Location Found!")

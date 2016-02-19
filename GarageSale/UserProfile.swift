@@ -6,29 +6,37 @@
 //  Copyright © 2016 mitchell hudson. All rights reserved.
 //
 
+
+/** 
+    A singleton to handle user profile info. 
+    There is only one user, there should only be one UserProfile.
+*/
+
 import UIKit
 import Parse
 
 
 // TODO: This class should create and save a user profile
-// TODO: Add something to add a profile for User objects that lack one
+// TODO: Add something to add a profile for User objects that lack one. 
+// ? Maybe just delete old users without a profile.
 
 class UserProfile {
     // Make this a singleton
     static let sharedInstance = UserProfile()
     
-    private init() {
-        
-    }
+    private init() {}
     
+    // Some Vars to store user data. 
     
     var username: String?
     var profileImage: PFFile?
     var userProfile: PFObject?
     
     
-    // Load profile
+    // MARK: Load profile
+    
     func loadProfile() {
+        print("Loading profile")
         if let user = PFUser.currentUser() {
             // User is logged in
             let query = PFQuery(className: Constants.ClassNames.Profile)
@@ -45,12 +53,15 @@ class UserProfile {
                             self.username = username
                         }
                         if let profileImage = profile[Constants.profile.profileImage] as? PFFile {
+                            print("Profile image found...")
                             self.profileImage = profileImage
                         }
                     } else {
                         print("* NO profile found")
                         self.createProfile()
                     }
+                } else {
+                    print("Error: \(error?.userInfo)")
                 }
             })
         } else {
@@ -75,19 +86,31 @@ class UserProfile {
     }
     
     
+    // Save Profile Image 
+    
     func setImageData(data: NSData) {
+        print("Upload profile image")
         if let userProfile = userProfile {
             let newProfileImage = PFFile(data: data)
-            // Update User profile
-            userProfile[Constants.profile.profileImage] = newProfileImage
-            // Update profileImage
-            profileImage = newProfileImage
-            print("Saving User Profile")
+            
             EZLoadingActivity.show("Saving Profile Image", disableUI: true)
-            userProfile.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-                print("User profile updated")
+            
+            newProfileImage?.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                print("Profile image uploaded")
                 EZLoadingActivity.hide()
+                // Update User profile
+                userProfile[Constants.profile.profileImage] = newProfileImage
+                print("Saving User Profile")
+                userProfile.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+                    // TODO: Check for errors here.
+                    print("User profile updated")
+                    if let error = error {
+                        print("Error: \(error.userInfo)")
+                    }
+                })
+
             })
+            
         }
     }
 }
