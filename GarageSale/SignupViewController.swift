@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
 
     var delegate: LoginSignUpViewControllerDelegate?
     
@@ -56,10 +56,19 @@ class SignupViewController: UIViewController {
     
     
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        usernameText.delegate = self
+        passwordText.delegate = self
+        passwordConfirmText.delegate = self
     }
 
     override func didReceiveMemoryWarning() {

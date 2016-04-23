@@ -10,11 +10,17 @@ import UIKit
 
 import Parse
 import ParseUI
+import CoreLocation
 
-class SimpleTableViewController: PFQueryTableViewController, ProfileViewControllerDelegate, LoginSignUpViewControllerDelegate {
+class GarageSaleQueryTableViewController: PFQueryTableViewController,
+    ProfileViewControllerDelegate,
+    LoginSignUpViewControllerDelegate,
+    CLLocationManagerDelegate {
     
-    
+     
+    var shouldUpdateFromServer = true
     let dateFormatter = NSDateFormatter()
+    let timeFormatter = NSDateFormatter()
     
     var profileButton: UIBarButtonItem!
     var loginButton: UIBarButtonItem!
@@ -22,9 +28,9 @@ class SimpleTableViewController: PFQueryTableViewController, ProfileViewControll
     
     // MARK: Set up bar buttons
     func setupBarButtons() {
-        addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addBarButtonTapped:")
-        profileButton = UIBarButtonItem(title: "Profile", style: .Plain, target: self, action: "profileButtonTapped:")
-        loginButton = UIBarButtonItem(title: "Login", style: .Plain, target: self, action: "loginBarButtonTapped:")
+        addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(GarageSaleQueryTableViewController.addBarButtonTapped(_:)))
+        profileButton = UIBarButtonItem(title: "Profile", style: .Plain, target: self, action: #selector(GarageSaleQueryTableViewController.profileButtonTapped(_:)))
+        loginButton = UIBarButtonItem(title: "Login", style: .Plain, target: self, action: #selector(GarageSaleQueryTableViewController.loginBarButtonTapped(_:)))
     }
     
     
@@ -130,10 +136,20 @@ class SimpleTableViewController: PFQueryTableViewController, ProfileViewControll
         super.viewDidLoad()
         
         // Set the date style
-        dateFormatter.dateStyle = .FullStyle
+        dateFormatter.dateStyle = .ShortStyle
+        timeFormatter.timeStyle = .ShortStyle
         
         setupBarButtons()
     }
+    
+    
+    
+    @IBAction func onTap(imageView: PFImageView) {
+        
+    }
+    
+    
+    
     
     
     // MARK: Init
@@ -176,10 +192,62 @@ class SimpleTableViewController: PFQueryTableViewController, ProfileViewControll
     
     // MARK: Data
     
-    override func queryForTable() -> PFQuery {
-        
-        return super.queryForTable().orderByAscending("startDate")
+    func baseQuery() -> PFQuery {
+        let query = PFQuery(className: Constants.ClassNames.GarageSale)
+        // let geoPoint = PFGeoPoint(location: location)
+        // query.whereKey(Constants.garageSale.geoLoc, nearGeoPoint: geoPoint, withinMiles: 50)
+        // query.orderByAscending(key: String)
+        return query
     }
+    
+    func baseQuery(location: CLLocation) -> PFQuery {
+        let query = PFQuery(className: Constants.ClassNames.GarageSale)
+        let geoPoint = PFGeoPoint(location: location)
+        query.whereKey(Constants.garageSale.geoLoc, nearGeoPoint: geoPoint, withinMiles: 50)
+        // query.orderByAscending(<#T##key: String##String#>)
+        return query
+    }
+    
+    override func queryForTable() -> PFQuery {
+        return super.queryForTable().orderByAscending("startDate")
+        // return self.baseQuery().fromLocalDatastore()
+    }
+    
+    
+    /*
+    func refreshLocalDataStoreFromServer() {
+        self.baseQuery().findObjectsInBackgroundWithBlock { (parseObjects:[PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                print("Refresh Found:\(parseObjects?.count)")
+                PFObject.unpinAllInBackground(parseObjects, block: { (success: Bool, error: NSError?)-> Void in
+                    if error == nil {
+                        print("PF Table View query loaded stuff")
+                        self.tableView.reloadData()
+                        self.shouldUpdateFromServer = false
+                        self.loadObjects()
+                    } else {
+                        print("Failed to pin objects \(error?.userInfo)")
+                    }
+                })
+            } else {
+                print("Error refreshing local objects \(error?.userInfo)")
+            }
+        }
+    }
+    */
+    
+    /*
+    override func objectsDidLoad(error: NSError?) {
+        super.objectsDidLoad(error)
+        
+        print("Objects did load")
+        if self.shouldUpdateFromServer {
+            self.refreshLocalDataStoreFromServer()
+        } else {
+            self.shouldUpdateFromServer = true
+        }
+    }
+     */
     
     
     
@@ -195,11 +263,17 @@ class SimpleTableViewController: PFQueryTableViewController, ProfileViewControll
         
         if let title = object?["title"] as? String {
             cell?.textLabel?.text = title
+            // cell?.detailTextLabel?.text = "Hello"
         }
         
-        if let startDate = object?["startDate"] as! NSDate? {
-            cell?.detailTextLabel?.text = dateFormatter.stringFromDate(startDate)
-            print(cell?.detailTextLabel?.text)
+        if let startDate = object?["startDate"] as? NSDate {
+            let startDateStr = dateFormatter.stringFromDate(startDate)
+            let startTimeStr = timeFormatter.stringFromDate(startDate)
+            if let endDate = object!["endDate"] as? NSDate {
+                let endTimeStr = timeFormatter.stringFromDate(endDate)
+                cell?.detailTextLabel?.text = "Date:\(startDateStr) Starts:\(startTimeStr) Ends:\(endTimeStr)"
+            }
+            
         }
         
         return cell
@@ -209,7 +283,7 @@ class SimpleTableViewController: PFQueryTableViewController, ProfileViewControll
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("toDetailSegue", sender: self)
+        // performSegueWithIdentifier("toDetailSegue", sender: self)
     }
     
     

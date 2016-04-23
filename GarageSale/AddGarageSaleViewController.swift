@@ -307,11 +307,13 @@ class AddGarageSaleViewController:
         activeText = nil
     }
     
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
         return true
     }
+    
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         if textField == dateText {
@@ -359,11 +361,11 @@ class AddGarageSaleViewController:
         
         inputView.addSubview(datePicker)
         
-        datePicker.addTarget(self, action: "datePickerPickedDate:", forControlEvents: .ValueChanged)
+        datePicker.addTarget(self, action: #selector(AddGarageSaleViewController.datePickerPickedDate(_:)), forControlEvents: .ValueChanged)
         
         let doneButton = UIButton(frame: CGRect(x: view.frame.width - 100, y: 0, width: 100, height: 40))
         doneButton.setTitle("Done", forState: .Normal)
-        doneButton.addTarget(self, action: "inputViewDone:", forControlEvents: .TouchUpInside)
+        doneButton.addTarget(self, action: #selector(AddGarageSaleViewController.inputViewDone(_:)), forControlEvents: .TouchUpInside)
         doneButton.backgroundColor = UIColor.redColor()
         inputView.addSubview(doneButton)
         
@@ -456,7 +458,7 @@ class AddGarageSaleViewController:
         endDateText.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddGarageSaleViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
         
         makeDatePickerWithDoneButton()
     }

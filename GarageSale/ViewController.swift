@@ -23,10 +23,8 @@ class ViewController: UIViewController,
     LoginSignUpViewControllerDelegate {
     
     let milesRadius: Double = 50    // Set the default search radius to search
-    
     var garageSaleMarkers = [PFObject]()    // store an array of Objects from Parse. Maybe this should be a set?
     var garageSaleMarkerIDs = [String]()    // hold marker ids for map view
-    
     var locationManager: CLLocationManager!
     
     // Some user interface elements
@@ -40,6 +38,7 @@ class ViewController: UIViewController,
     @IBOutlet weak var mapView: MKMapView!
     
     
+    
     // Fetch Garage Sales in area 
     
     func fetchGarageSalesInLocation(location: CLLocation) {
@@ -48,7 +47,7 @@ class ViewController: UIViewController,
         let geoPoint = PFGeoPoint(location: location)
         // Need a PFGeoPoint as the center for the search.
         // Search for Garage Sales within a radius
-        query.whereKey(Constants.garageSale.geoLoc, nearGeoPoint: geoPoint, withinMiles: milesRadius)
+        // query.whereKey(Constants.garageSale.geoLoc, nearGeoPoint: geoPoint, withinMiles: milesRadius)
         
         // Run the query and find some PFObjects
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?, error: NSError?) -> Void in
@@ -165,9 +164,9 @@ class ViewController: UIViewController,
     // MARK: Set up bar buttons
     
     func setupBarButtons() {
-        addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addBarButtonTapped:")
-        profileButton = UIBarButtonItem(title: "Profile", style: .Plain, target: self, action: "profileButtonTapped:")
-        loginButton = UIBarButtonItem(title: "Login", style: .Plain, target: self, action: "loginBarButtonTapped:")
+        addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(ViewController.addBarButtonTapped(_:)))
+        profileButton = UIBarButtonItem(title: "Profile", style: .Plain, target: self, action: #selector(ViewController.profileButtonTapped(_:)))
+        loginButton = UIBarButtonItem(title: "Login", style: .Plain, target: self, action: #selector(ViewController.loginBarButtonTapped(_:)))
     }
     
     // Handle login button

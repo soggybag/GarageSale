@@ -55,10 +55,13 @@
 		7B74E9FD1C534F7200E91BFA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E9FC1C534F7200E91BFA /* Protocols.swift */; };
 		7B74E9FF1C535C7500E91BFA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B74E9FE1C535C7500E91BFA /* SignupViewController.swift */; };
 		7B74EA011C53E7AF00E91BFA /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B74EA001C53E7AF00E91BFA /* UserProfile.swift */; };
+		7BAECA451C79228100E4D4C9 /* QueryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BAECA441C79228100E4D4C9 /* QueryStore.swift */; };
 		7BBC8A631C6FA8C300EC8BDB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBC8A621C6FA8C300EC8BDB /* CustomImageView.swift */; };
 		7BBC8A6D1C6FB9CC00EC8BDB /* GarageSaleMapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBC8A6C1C6FB9CC00EC8BDB /* GarageSaleMapMarker.swift */; };
 		7BBC8A701C6FEEF000EC8BDB /* Map-Marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBC8A6E1C6FEEF000EC8BDB /* Map-Marker.png */; };
 		7BBC8A711C6FEEF000EC8BDB /* Map-Marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BBC8A6F1C6FEEF000EC8BDB /* Map-Marker@2x.png */; };
+		7BF5D6901CC71DCE007E1EC1 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF5D68E1CC71DCE007E1EC1 /* camera@2x.png */; };
+		7BF5D6911CC71DCE007E1EC1 /* camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF5D68F1CC71DCE007E1EC1 /* camera@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,10 +137,13 @@
 		7B74E9FC1C534F7200E91BFA /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		7B74E9FE1C535C7500E91BFA /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		7B74EA001C53E7AF00E91BFA /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		7BAECA441C79228100E4D4C9 /* QueryStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryStore.swift; sourceTree = "<group>"; };
 		7BBC8A621C6FA8C300EC8BDB /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		7BBC8A6C1C6FB9CC00EC8BDB /* GarageSaleMapMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarageSaleMapMarker.swift; sourceTree = "<group>"; };
 		7BBC8A6E1C6FEEF000EC8BDB /* Map-Marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map-Marker.png"; sourceTree = "<group>"; };
 		7BBC8A6F1C6FEEF000EC8BDB /* Map-Marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Map-Marker@2x.png"; sourceTree = "<group>"; };
+		7BF5D68E1CC71DCE007E1EC1 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
+		7BF5D68F1CC71DCE007E1EC1 /* camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +214,7 @@
 			children = (
 				7B341B7B1C5086AA0020AC67 /* AppDelegate.swift */,
 				7B341B7F1C5086AA0020AC67 /* Main.storyboard */,
+				7BAECA441C79228100E4D4C9 /* QueryStore.swift */,
 				7B4BFBC01C7677FF008ED202 /* Details View */,
 				7B74EA021C53ECA000E91BFA /* Profile View */,
 				7B74EA031C53ECB700E91BFA /* Map Garage Sales View */,
@@ -297,6 +304,8 @@
 				7BBC8A621C6FA8C300EC8BDB /* CustomImageView.swift */,
 				7B74E9B61C52876B00E91BFA /* Constants.swift */,
 				7B341BD51C517B330020AC67 /* EZLoadingActivity.swift */,
+				7BF5D68E1CC71DCE007E1EC1 /* camera@2x.png */,
+				7BF5D68F1CC71DCE007E1EC1 /* camera@3x.png */,
 				7B55AC3F1C6E454900509E85 /* TextFieldEffects */,
 			);
 			name = "Helper Classes";
@@ -465,6 +474,8 @@
 				7BBC8A711C6FEEF000EC8BDB /* Map-Marker@2x.png in Resources */,
 				7B341B861C5086AA0020AC67 /* Assets.xcassets in Resources */,
 				7B55AC4E1C6E456100509E85 /* Info.plist in Resources */,
+				7BF5D6911CC71DCE007E1EC1 /* camera@3x.png in Resources */,
+				7BF5D6901CC71DCE007E1EC1 /* camera@2x.png in Resources */,
 				7BBC8A701C6FEEF000EC8BDB /* Map-Marker.png in Resources */,
 				7B341B811C5086AA0020AC67 /* Main.storyboard in Resources */,
 			);
@@ -497,6 +508,7 @@
 				7B74E9B71C52876B00E91BFA /* Constants.swift in Sources */,
 				7B74EA011C53E7AF00E91BFA /* UserProfile.swift in Sources */,
 				7B55AC581C6E469A00509E85 /* CustomButton.swift in Sources */,
+				7BAECA451C79228100E4D4C9 /* QueryStore.swift in Sources */,
 				7B55AC4D1C6E456100509E85 /* HoshiTextField.swift in Sources */,
 				7B341BD61C517B330020AC67 /* EZLoadingActivity.swift in Sources */,
 				7B74E9FD1C534F7200E91BFA /* Protocols.swift in Sources */,
